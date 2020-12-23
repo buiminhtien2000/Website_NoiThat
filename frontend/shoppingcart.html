@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <!-- -------------------------------- -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <!-- -------------------------------- -->
+  <!-- ------------------------------------ -->
+  <div class="aside1" style="min-height: 500px; margin-top: 100px;" ng-controller="cart">
+    <!-- ----------------------------------------- -->
+    <!-- ------------------ -->
+    <h2 class="text-center">Royal Funiture hân hạnh phục vụ</h2>
+    <div class="container">
+      <table id="cart" class="table table-hover table-condensed">
+        <thead>
+          <tr>
+            <th style="width:50%">Tên sản phẩm</th>
+            <th style="width:10%">Giá</th>
+            <th style="width:8%">SL</th>
+            <th style="width:22%" class="text-center">Thành tiền</th>
+            <th style="width:10%"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="list in listCart">
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs"><img
+                       src="upload/productPiture/{{list.pictureProduct}}" alt="Sản phẩm 1"
+                       class="img-responsive" width="100">
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="nomargin">{{list.productName}}</h4>
+                </div>
+              </div>
+            </td>
+            <td data-th="Price">{{list.price}} đ</td>
+            <td data-th="Quantity"><input class="form-control text-center" ng-mouseleave="updateProduct(list.idProduct)"
+                     ng-model="list.quantity" min="1" type="number" id="quantity{{list.idProduct}}" max="20">
+            </td>
+            <td data-th="Subtotal" class="text-center">{{list.totalMoney}} đ</td>
+            <td class="actions" data-th="">
+
+              <button class="btn btn-danger btn-sm" ng-click="delteCart(list.idProduct)"><i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+          </tfoot>
+      </table>
+      <div>
+        <a class="btn btn-danger btn-sm float-left" style="background-color: orange;" href="#!">Tiến tục mua hàng
+        </a>
+        <a class="btn btn-danger btn-sm float-right" href="#!pay">thanh toan
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- ------------------ -->
+
+</body>
+
+</html>

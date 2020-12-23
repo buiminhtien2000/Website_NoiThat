@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>web shop nội thất</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="keywords" content="Object a Responsive web template,
+            Bootstrap Web Templates, Flat Web Templates, Android Compatible web
+            template,
+            Smartphone Compatible web template, free webdesigns for Nokia,
+            Samsung, LG, SonyEricsson, Motorola web design" />
+  <script>
+    addEventListener(
+      "load",
+      function () {
+        setTimeout(hideURLbar, 0);
+      },
+      false
+    );
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/aos.css" />
+  <link href="css/aos-animation.css" rel="stylesheet prefetch" type="text/css" media="all" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/slider.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="screen" property="" />
+  <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+  <link href="css/fontawesome-all.css" rel="stylesheet" />
+  <link href="//fonts.googleapis.com/css?family=Dosis:300,400,500,600,700" rel="stylesheet" />
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css//css.css" />
+</head>
+
+<body>
+  <div class="aside1" style="min-height: 500px; margin-top: 100px" ng-controller="productDetail">
+    <!-- ----------------------------------------- -->
+    <!-- ------------------ -->
+    <div class="container">
+      <div class="card" ng-init="findProductByID()">
+        <div class="container-fliud">
+          <div class="wrapper row">
+            <div class="preview col-md-6">
+              <div class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1">
+                  <img src="./upload/productPiture/{{product[0].pictureProduct}}" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="details col-md-6">
+              <h3 class="product-title">{{product[0].productName}}</h3>
+              <p class="product-description">Giá: {{product[0].price}}</p>
+              <p class="product-description">
+                Danh Mục: {{product[0].category}}
+              </p>
+              <p class="product-description">
+                Mô Tả: {{product[0].description}}
+              </p>
+              <form>
+                <div class="def-number-input number-input safari_only">
+                  <b>Số lượng:</b>
+                  <input type="number" min="1" style="border: solid 1px black; width: 60px; height: 30px"
+                         ng-model="quantity" value="1" ng-change="sumMoney(product[0].price)" id="quantity" />
+                </div>
+                <p style="color: black" class="mt-4">
+                  <b>Tổng tiền:</b>
+                  <b class="text-danger">{{totalMoney}} vnđ</b>
+                </p>
+                <input type="text" style="display: none;" value="{{product[0].id}}" id="idProduct" />
+                <input type="text" style="display: none;" value="{{product[0].productName}}" id="productName" />
+                <input type="text" style="display: none;" value="{{product[0].price}}" id="price" />
+                <input type="text" style="display: none;" value="{{totalMoney}}" id="totalMoney" />
+                <input type="text" style="display: none;" value="{{product[0].pictureProduct}}" id="pictureProduct" />
+                <button ng-click="thanhtoan()" class="btn btn-primary">
+                  Mua Ngay
+                </button>
+                <button ng-click="addCart()" class="btn btn-primary">
+                  Thêm giỏ Hàng
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <-------------------- coment -------------------- -->
+    <div>
+      <!------ Include the above in your HEAD tag ---------->
+
+      <br />
+      <a class="hover-2 btn text-uppercase" data-toggle="modal" data-target="#binhluan" id="login-button"
+         ng-click="comment(1,'','')" style="margin-left: 44%; "><i></i>Viết bình luận</a>
+
+      <div class="modal fade" id="binhluan" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <button type="button" class="close" id="cancel-btn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <h2>
+                    Đánh giá
+                    <small></small>
+                  </h2>
+                </div>
+
+                <div>Nhận xét của bạn</div>
+
+                <textarea class="form-control animated" cols="50" id="new-review" name="comment"
+                          placeholder="Enter your review here..." rows="5"
+                          style="width: 450px; margin-left: -20px"></textarea>
+
+                <div>Đánh giá sao</div>
+                <input type="hidden" id="level" />
+                <input type="hidden" id="order_number" />
+                <input type="hidden" id="fullname" />
+                <div class="rating" style="margin-left: -120px">
+                  <span><input type="radio" name="rating" id="str5" value="5" /><label for="str5"></label></span>
+                  <span><input type="radio" name="rating" id="str4" value="4" /><label for="str4"></label></span>
+                  <span><input type="radio" name="rating" id="str3" value="3" /><label for="str3"></label></span>
+                  <span><input type="radio" name="rating" id="str2" value="2" /><label for="str2"></label></span>
+                  <span><input type="radio" name="rating" id="str1" value="1" /><label for="str1"></label></span>
+                </div>
+                <div id="count-existing"></div>
+                <input type="hidden" id="sao" />
+
+                <br />
+                <br />
+                <button class="btn btn-success btn-lg" style="margin-left: 145px" type="submit" ng-click="addcomment()">
+                  Đánh giá
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .rating {
+          float: left;
+          width: 300px;
+        }
+
+        .rating span {
+          float: right;
+          position: relative;
+        }
+
+        .rating span input {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          opacity: 0;
+        }
+
+        .rating span label {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          color: #fff;
+          background: #ccc;
+          font-size: 30px;
+          margin-right: 2px;
+          line-height: 30px;
+          border-radius: 20%;
+          -webkit-border-radius: 50%;
+        }
+
+        .rating span:hover~span label,
+        .rating span:hover label,
+        .rating span.checked label,
+        .rating span.checked~span label {
+          background: #f90;
+          color: #fff;
+        }
+      </style>
+      <script>
+        $(document).ready(function () {
+          // Check Radio-box
+          $(".rating input:radio").attr("checked", false);
+
+          $(".rating input").click(function () {
+            $(".rating span").removeClass("checked");
+            $(this).parent().addClass("checked");
+          });
+
+          $("input:radio").change(function () {
+            var value = this.value;
+            document.getElementById('sao').value = value;
+
+            if (value == 1) {
+              $("#count-existing").html("Không thích");
+            }
+            if (value == 2) {
+              $("#count-existing").html("Tạm được");
+            }
+            if (value == 3) {
+              $("#count-existing").html("Bình thường");
+            }
+            if (value == 4) {
+              $("#count-existing").html("Rất tốt");
+            }
+            if (value == 5) {
+              $("#count-existing").html("Tuyệt vời");
+            }
+          });
+        });
+      </script>
+      <input type="hidden" name="ida" id="ida">
+      <button style="display: none;" id="deletecomment" ng-click="deletecomment()"></button>
+      <div style="margin-left: 19%" id="abc">
+        <script>
+          function comment1(a, b, c) {
+
+            document.getElementById('level').value = a;
+            document.getElementById('order_number').value = b;
+            document.getElementById('fullname').value = c;
+          }
+        </script>
+
+      </div>
+
+      <script>
+
+        function deletecomment(id) {
+          var r = confirm("Bạn có chắc muốn xóa bình luận!");
+          if (r == true) {
+            document.getElementById('ida').value = id;
+            document.getElementById('deletecomment').click();
+          }
+        }
+      </script>
+
+
+
+
+
+      <hr />
+      <div class="container">
+        <h1>Sản Phẩm Liên Quan</h1>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3" ng-repeat="productsByCate in productsByCategory">
+            <div class="card" style="width: 100%">
+              <img src="./upload/productPiture/{{productsByCate.pictureProduct}}" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">{{productsByCate.productName}}</p>
+              </div>
+              <div class="card-footer">
+                <div style="float: left">
+                  <p class="card-text">{{productsByCate.price}}</p>
+                </div>
+                <div style="float: left">
+                  <a href="#!ProductDetail/{{productsByCate.id}}" class="btn btn-primary">đặt hàng</a>
+                </div>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div>
+        <div id="fb-root"></div>
+      </div>
+      <div class="form-group comment">
+        <div id="fb-root"></div>
+      </div>
+
+      <script src="js/jquery-1.11.1.min.js"></script>
+</body>
+
+</html>

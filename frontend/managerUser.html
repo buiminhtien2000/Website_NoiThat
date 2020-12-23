@@ -1,0 +1,33 @@
+<div class="container" style="clear: both;">
+    <div class="row">
+        <h2 class="custom-input">Chỉnh Sửa Tài Khoản</h2>
+    </div>
+    <form ng-controller="managerUser" ng-submit="updateUser()">
+        <div class="form-row" ng-init="findById()">
+            <input type="hidden" id="idUser" value="{{user[0].id}}">
+            <div class="col-10 col-md-5 custom-input">
+                <input type="text" class="form-control m-2" id="name" value="{{user[0].name}}">
+            </div>
+            <div class="col-10 col-md-5 custom-input">
+                <input type="password" class="form-control m-2" id="password" value="{{user[0].password}}">
+            </div>
+            <div class="col-10 col-md-5 custom-input">
+                <input type="date" class="form-control m-2" id="birthday" value="{{user[0].birthDay}}">
+            </div>
+            <div class="col-10 col-md-5 custom-input">
+                <input type="text" class="form-control m-2" id="phoneOrEmail" value="{{user[0].phoneOrEmail}}">
+            </div>
+            <div class="col-10 col-md-5 custom-input">
+                <input type="text" class="form-control m-2" id="adress" value="{{user[0].adress}}">
+            </div>
+            <div class="col-10 col-md-5 custom-input">
+                <input type="file" name="" class="form-control m-2" id="inputFile" style="outline: none;">
+                <p style="display: none;" id="pictureProduct">{{user[0].picture}}</p>
+            </div>
+            <div class="col-10 col-md-10 custom-input text-center m-2">
+                <input type="submit" name="" Value="Cập Nhập" style="width:8%">
+                <input type="reset" name="" Value="Mới" style="width:8%">
+            </div>
+        </div>
+    </form>
+</div>

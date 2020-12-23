@@ -1,0 +1,152 @@
+<div class="row" ng-controller="managerComment">
+  <form class="mt-2 mr-2 " style="margin-left: 26%;">
+    Chọn sản phẩm:
+    <select id="a">
+      <option ng-repeat="x in products" value="{{x.id}}">{{x.productName}}</option>
+    </select>
+
+    <input type="submit" ng-click="commentidProduct4()" id="a123" value="Tìm Kiếm">
+  </form>
+
+  <div class="modal fade" id="binhluan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" id="cancel-btn" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h2>
+                Đánh giá
+                <small></small>
+              </h2>
+            </div>
+
+            <div>Nhận xét của bạn</div>
+
+            <textarea class="form-control animated" cols="50" id="new-review" name="comment"
+                      placeholder="Enter your review here..." rows="5"
+                      style="width: 450px; margin-left: -20px"></textarea>
+
+            <div>Đánh giá sao</div>
+            <input type="hidden" id="level" />
+            <input type="hidden" id="order_number" />
+            <input type="hidden" id="fullname" />
+            <div class="rating" style="margin-left: -120px">
+              <span><input type="radio" name="rating" id="str5" value="5" /><label for="str5"></label></span>
+              <span><input type="radio" name="rating" id="str4" value="4" /><label for="str4"></label></span>
+              <span><input type="radio" name="rating" id="str3" value="3" /><label for="str3"></label></span>
+              <span><input type="radio" name="rating" id="str2" value="2" /><label for="str2"></label></span>
+              <span><input type="radio" name="rating" id="str1" value="1" /><label for="str1"></label></span>
+            </div>
+            <div id="count-existing"></div>
+            <input type="hidden" id="sao" />
+
+            <br />
+            <br />
+            <button class="btn btn-success btn-lg" style="margin-left: 145px" type="submit" ng-click="addcomment()">
+              Đánh giá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .rating {
+      float: left;
+      width: 300px;
+    }
+
+    .rating span {
+      float: right;
+      position: relative;
+    }
+
+    .rating span input {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      opacity: 0;
+    }
+
+    .rating span label {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      color: #fff;
+      background: #ccc;
+      font-size: 30px;
+      margin-right: 2px;
+      line-height: 30px;
+      border-radius: 20%;
+      -webkit-border-radius: 50%;
+    }
+
+    .rating span:hover~span label,
+    .rating span:hover label,
+    .rating span.checked label,
+    .rating span.checked~span label {
+      background: #f90;
+      color: #fff;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      // Check Radio-box
+      $(".rating input:radio").attr("checked", false);
+
+      $(".rating input").click(function () {
+        $(".rating span").removeClass("checked");
+        $(this).parent().addClass("checked");
+      });
+
+      $("input:radio").change(function () {
+        var value = this.value;
+        document.getElementById('sao').value = value;
+
+        if (value == 1) {
+          $("#count-existing").html("Không thích");
+        }
+        if (value == 2) {
+          $("#count-existing").html("Tạm được");
+        }
+        if (value == 3) {
+          $("#count-existing").html("Bình thường");
+        }
+        if (value == 4) {
+          $("#count-existing").html("Rất tốt");
+        }
+        if (value == 5) {
+          $("#count-existing").html("Tuyệt vời");
+        }
+      });
+    });
+  </script>
+
+  <input type="hidden" name="ida" id="ida">
+  <button style="display: none;" id="deletecomment" ng-click="deletecomment()"></button>
+  <div style="margin-left: 100px" id="abcd">
+
+    <script>
+      function comment(a, b, c) {
+        document.getElementById('level').value = a;
+        document.getElementById('order_number').value = b;
+        document.getElementById('fullname').value = c;
+      }
+      function deletecomment(id) {
+        var r = confirm("Bạn có chắc muốn xóa bình luận!");
+        if (r == true) {
+          document.getElementById('ida').value = id;
+          document.getElementById('deletecomment').click();
+        }
+      }
+    </script>
+  </div>
+  <!------------*********************--------------------->
+</div>

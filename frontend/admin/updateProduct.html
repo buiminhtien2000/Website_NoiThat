@@ -1,0 +1,59 @@
+
+         <div ng-controller="managerProduct" ng-init="findByID()"> 
+          <div class="row">
+            <h2 class="custom-input">Cập Nhật Sản Phẩm</h2>
+          </div>
+          <p>{{message}}</p>
+          <form ng-submit="UpdateProduct()">
+            <div class="form-row">
+              <input type="hidden" id="pictureProduct" value="{{products[0].pictureProduct}}">
+              <div class="col-10 col-md-5 custom-input">
+                <input type="text" name="" class="form-control"  value="{{products[0].productName}}" id="productName">
+              </div>
+              <div class="col-10 col-md-5 custom-input">
+                
+                <input type="text" class="form-control" name="" value="{{products[0].price}}" id="price">
+              </div>
+              <div class="col-10 col-md-5 custom-input">
+                <select class="form-control" id="category" ng-if="products[0].category =='ghe'">
+                  <option value="ghe">ghế</option>
+                  <option value="ban">Bàn</option>
+                  <option value="tu">Tủ</option>
+                  <option value="giuong">giường</option>
+                </select>
+                <select class="form-control" id="category" ng-if="products[0].category =='ban'">
+                  <option value="ghe">ghế</option>
+                  <option value="ban" selected="selected">Bàn</option>
+                  <option value="tu">Tủ</option>
+                  <option value="giuong">giường</option>
+                </select>
+                <select class="form-control" id="category" ng-if="products[0].category =='tu'">
+                  <option value="ghe">ghế</option>
+                  <option value="ban">Bàn</option>
+                  <option value="tu" selected="selected">Tủ</option>
+                  <option value="giuong" >giường</option>
+                </select>
+                <select class="form-control" id="category" ng-if="products[0].category =='giuong'">
+                  <option value="ghe">ghế</option>
+                  <option value="ban">Bàn</option>
+                  <option value="tu" >Tủ</option>
+                  <option value="giuong" selected="selected">giường</option>
+                </select>
+                <!-- <input type="text" name="" class="form-control"  value="{{products[0].category}}" > -->
+              </div>
+              <div class="col-10 col-md-5 custom-input">
+                <input type="number" name="" class="form-control" value="{{products[0].quantity}}" id="quantity">
+              </div>
+              <div class="col-10 col-md-5 custom-input">
+                <input type="file" name="" class="form-control" id="inputFile">
+              </div>
+              <div class="col-10 col-md-11 custom-input">
+                <textarea class="form-control" placeholder="Mô Tả" value="{{products[0].description}}" id="description"></textarea>
+              </div>
+              <div class="col-10 col-md-5 custom-input text-center">
+                <input type="submit" name="" Value="Cập Nhập">
+                <input type="reset" name="" Value="Mới">
+              </div>
+            </div>
+          </form>
+        </div>

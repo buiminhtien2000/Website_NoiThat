@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>web shop nội thất</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Object a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/aos.css">
+    <link href='css/aos-animation.css' rel='stylesheet prefetch' type="text/css" media="all" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/slider.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="screen" property="" />
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:300,400,500,600,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="js/userJS/userApp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0"
+            nonce="G5BWDeLJ"></script>
+</head>
+<div class="container" ng-controller="cart">
+    <div class="row" style="margin-left: 300px; width: 1000px;">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong><img src="./images//logo-hg.png" alt="..." class="logo_1"
+                                 style="width:150px;height: 40px;"></strong>
+                        <br>
+                        137 Nguyễn Thị Thập
+                        <br>
+                        Đà Nẵng
+                        <br>
+                        <p title="Phone">contact: 0987654321</p>
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em> {{date1 | date:'dd-MM-yyyy'}}</em><br>
+                        Tên :{{loginUser.name}}<br>
+                        Địa chỉ: {{loginUser.adress}}<br>
+                        contact: {{loginUser.phoneOrEmail}}<br>
+                    </p>
+                    <p>
+
+
+                    </p>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1> Hoá đơn</h1>
+                </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Số Lượng</th>
+                            <th class="text-center">Giá bán</th>
+                            <th class="text-center">Toàn bộ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="list in listCart">
+                            <td class="col-md-9"><em>{{list.productName}}</em></h4>
+                            </td>
+                            <td class="col-md-1" style="text-align: center"> {{list.quantity}} </td>
+                            <td class="col-md-1 text-center">{{list.price}} đ</td>
+                            <td class="col-md-1 text-center">{{list.totalMoney}} đ</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <h4>Toàn bộ:</h4>
+                            </td>
+                            <td class="text-center text-danger" colspan="2">
+                                <h4><strong>{{tongtien()}} đ</strong></h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success btn-lg btn-block" ng-click="thanhtoan()">
+                    Thanh toán   <span class="glyphicon glyphicon-chevron-right"></span>
+                </button></td>
+            </div>
+        </div>
+    </div>
+    <br>
+
+</div>

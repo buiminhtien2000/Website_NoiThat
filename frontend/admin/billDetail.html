@@ -1,0 +1,60 @@
+<div class="backg-white billDeltail" ng-controller="managerBill">
+  <div class="col-md-5 col-lg-8" style="color: #1fecb3">
+    <h5 style="color: #1dd9a5">Chi Tiết Đơn Hàng:</h5>
+  </div>
+  <div class="col-md-4 float-left" ng-init="getUser()">{{user.name}}
+    <div ng-repeat="user in User">
+      <div class="col-md-12 float-left">
+        <p class="text-dark font-weight-bold">Tên Khách Hàng: </p>
+        <p class="text-dark">{{user.name}}</p>
+      </div>
+      <div class="col-md-12 float-left">
+        <p class="text-dark font-weight-bold">Số Điện Thoại: </p>
+        <p class="text-dark">{{user.phoneOrEmail}}</p>
+      </div>
+      <div class="col-md-12 float-left">
+        <p class="text-dark font-weight-bold">Địa Chỉ: </p>
+        <p class="text-dark">{{user.adress}}</p>
+      </div>
+      <div class="col-md-12 float-left" ng-init="getBillById()">
+        <p class="text-dark font-weight-bold">Trạng Thái: </p>
+        <div ng-if="BillById[0].status == '1'">
+          <select id="status" ng-change="updateBill(BillById[0].id)" ng-model="form.status"
+                  ng-init="form.status=BillById[0].status">
+            <option value="1" selected="selected">Chờ Xử Lý</option>
+            <option value="4">Hủy</option>
+            <option value="2">Đang Giao Hàng</option>
+            <option value="3">Hoàn Thành</option>
+          </select>
+        </div>
+        <div ng-if="BillById[0].status == '2'">
+          <select id="status" ng-model="form.status"
+                  ng-init="form.status=BillById[0].status" ng-change="updateBill(BillById[0].id)">
+            <option value="2" selected="selected">Đang Giao Hàng</option>
+            <option value="3">Hoàn Thành</option>
+          </select>
+        </div>
+        <div ng-if="BillById[0].status == '3'">
+          <p class="text-primary">Hoàn Thành</p>
+        </div>
+        <div ng-if="BillById[0].status == '4'">
+          <p class="text-danger">Đơn Hàng Đã Hủy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 float-left" ng-init="getBillDetail()">
+    <table style="width:100%;">
+      <tr>
+        <th>Tên Sản Phẩm</th>
+        <th>Số Lượng</th>
+        <th>Thành Tiền</th>
+      </tr>
+      <tr ng-repeat="billdetail in BillDetail">
+        <td>{{billdetail.productName}}</td>
+        <td>{{billdetail.quantity}}</td>
+        <td>{{billdetail.totalMoney}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div ng-controller="thongke2">
+
+  <h1 class="h1 text-center">Tổng doanh thu </h1>
+
+  <div class="row justify-content-end">
+    <form class="mt-2 mr-2">
+      <label>Từ ngày</label>
+      <input type="date" value="1/12/2020" placeholder="bắt đầu từ ngày" id="textSearch">
+      <label>Đến ngày</label>
+      <input type="date" value="31/12/2020" placeholder="kết thúc" id="textSearch1">
+      <input type="submit" ng-click="search()" value="Tìm Kiếm">
+    </form>
+  </div>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên khách hàng</th>
+        <th scope="col" class=" text-center">tổng tiền mua </th>
+
+      </tr>
+    </thead>
+    <tr data-ng-repeat="i in range">
+
+      <th scope="row">{{i+1}}</th>
+      <!-- <td>{{getUser(Bill2[i][0]}}</td> -->
+      <td>{{Bill2[i][0]}}</td>
+      <td class="text-center">{{Bill2[i][1]}}</td>
+
+    </tr>
+    <tr>
+
+      <td colspan="2" class="h4 text-center">tổng tiền</td>
+
+      <td colspan="1" class="h4 text-center">{{tongtien}}</td>
+
+    </tr>
+
+  </table>
+
+</div>

@@ -1,0 +1,21 @@
+<div ng-controller="thongke1">
+
+    <h1 class="h1 text-center">Top 10 sản phẩm số lượng bán ra thấp nhất</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên Sản Phẩm</th>
+                <th scope="col">Số Lượng đặt hàng </th>
+
+            </tr>
+        </thead>
+        <tr data-ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+            <th scope="row">{{i+1}}</th>
+            <td> {{Bill2[i][0]}}</td>
+            <td>{{Bill2[i][1]}}</td>
+
+        </tr>
+    </table>
+</div>

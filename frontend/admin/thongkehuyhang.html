@@ -1,0 +1,34 @@
+<div ng-controller="thongke3">
+
+  <h1 class="h1 text-center">Danh sách Đơn hàng bị hủy</h1>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên khách hàng</th>
+        <th scope="col" class=" text-center">tổng Đơn bị hủy </th>
+
+      </tr>
+    </thead>
+    <tr data-ng-repeat="i in range">
+
+      <th scope="row">{{i+1}}</th>
+      <!-- <td>{{getUser(Bill2[i][0]}}</td> -->
+      <td>{{Bill2[i][0]}}</td>
+      <td class="text-center">{{Bill2[i][1]}}</td>
+
+    </tr>
+    <tr>
+
+      <td colspan="2" class="h4 text-center">Tổng hủy</td>
+
+      <td colspan="1" class="h4 text-center">{{tongtien}}</td>
+
+    </tr>
+
+  </table>
+
+</div>
